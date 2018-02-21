@@ -11,23 +11,23 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://usachannel22.com/members.php</loc>
+  <loc>https://usachannel22.com/members.html</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://usachannel22.com/streams.php</loc>
+  <loc>https://usachannel22.com/streams.html</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://usachannel22.com/servers.php</loc>
+  <loc>https://usachannel22.com/servers.html</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://usachannel22.com/quotes.php</loc>
+  <loc>https://usachannel22.com/quotes.html</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://usachannel22.com/gps.php</loc>
+  <loc>https://usachannel22.com/gps.html</loc>
   <priority>0.80</priority>
 </url>
 <url>
@@ -35,7 +35,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://usachannel22.com/gps-setup.php</loc>
+  <loc>https://usachannel22.com/gps-setup.html</loc>
   <priority>0.64</priority>
 </url>
 </urlset>
