@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="0.91 r13725"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 127.12579 135.9668"
+   height="135.9668"
+   width="127.12579"
+   sodipodi:docname="ch22logo-noborder-whitetext-transparentbg.svg"
+   inkscape:export-filename="/home/benjamin/Pictures/ch22logofromsvg-2048px-whitetext-bluegreybg.png"
+   inkscape:export-xdpi="720"
+   inkscape:export-ydpi="720">
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="1672"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     showguides="false"
+     units="px"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="65.655891"
+     inkscape:cx="-4.5581721"
+     inkscape:zoom="2.6319637"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient14201"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop14203" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient12191"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop12193" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient12185"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ff5722;stop-opacity:1;"
+         offset="0"
+         id="stop12187" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-64.437107,-856.37878)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="55.384373"
+       y="989.79675"
+       id="text14215"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan14217"
+         x="55.384373"
+         y="989.79675"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:180px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold';fill:#ffffff">C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:47.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="109.23868"
+       y="946.59851"
+       id="text14219"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan14221"
+         x="109.23868"
+         y="946.59851"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:60px;font-family:Verdana;-inkscape-font-specification:'Verdana Bold';fill:#ffffff">22</tspan></text>
+  </g>
+</svg>

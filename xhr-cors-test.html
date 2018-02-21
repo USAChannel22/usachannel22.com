@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	<!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+
+    <!-- AJAX Magic -->
+    <script type="text/javascript">
+		(function($)
+		{
+			$(document).ready(function()
+			{
+				$.ajaxSetup(
+				{
+					cache: false,
+					beforeSend: function() {//show loading when about to request
+						$('#refreshnote').fadeTo("slow",1);
+						$('#refreshnote').text("Updating...");
+						
+					},
+					success: function() {//remove loading when request successful (no errors)
+						
+						$('#refreshnote').text("Updating..."); //not visible
+						$('#refreshnote').fadeTo("slow",0);
+					},
+					error: function() {//show error if request not successful (errors)
+						$('#refreshnote').fadeTo("fast",1);
+						$('#refreshnote').text("CONNECTION ERROR! Waiting for connection...");
+						
+					}
+				});
+				function serverCheck(domain, port) {
+					$("#teamspeak-ajax").load("https://usachannel22.com/servercheck.php?CheckedDomain=" + domain + "&CheckedPort=" + port); //initial
+					var refreshId = setInterval(function() //after initial
+					{
+						$("#teamspeak-ajax").load("https://usachannel22.com/servercheck.php?CheckedDomain=" + domain + "&CheckedPort=" + port);
+					}, 10000); //sleep 10sec
+				};
+			});
+		})(jQuery);
+    </script>
+</head>
+<!-- stop looking at this terrible code -->
+
+<body>
+
+	<div id="refreshnote">Initial Load...</div>
+	<div id="teamspeak-ajax">Initial AJAX...</div>
+
+</body>
+
+</html>
