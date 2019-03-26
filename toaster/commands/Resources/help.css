@@ -1,0 +1,79 @@
+﻿body {
+font-family: tahoma;
+}
+
+#group {
+	padding: 4px;
+	font-size: 13px;
+	overflow: hidden;
+	margin-top: 4px;
+	margin-right: 4px;
+	margin-bottom: 22px;
+	margin-left: 4px;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-color: #000;
+	border-right-color: #000;
+	border-bottom-color: #000;
+	border-left-color: #000;	
+}
+#heading {
+	padding: 1px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	margin: 0x;
+	
+}
+#command {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	padding: 1px;
+	margin: 5px;
+	float: left;
+	border: 1px solid #666;
+	font-size: 13px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #fff;
+}
+
+
+#clear { clear: both;}
+td {
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+	background-color: #FFF;
+	padding: 3px;
+}
+.optional {
+	font-style: italic;
+	color: #999;
+}
+.phrase
+{
+	font-size: 16px;
+	white-space: nowrap;
+}
+.pRange
+{	
+	color: #E12;
+}
+.pList
+{	
+font-size: 15px;
+	color: #06B;
+}
+.pFromXML
+{
+	font-size: 14px;
+	color: #082;
+}
