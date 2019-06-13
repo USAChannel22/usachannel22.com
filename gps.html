@@ -74,12 +74,6 @@
 <!-- get your nosey ass out of here -->
 
 <body class="c5">
-    <script>
-        <!-- activate button for current page -->
-        $(document).ready(function() {
-            $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-        });
-    </script>
     <div class="container c4">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -153,7 +147,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha256-kJrlY+s09+QoWjpkOrXXwhxeaoDz9FW5SaxF8I0DibQ=" crossorigin="anonymous"></script>
-
+    <script>
+        <!-- activate button for current page -->
+        $(document).ready(function() {
+            $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+        });
+    </script>
 </body>
 
 </html>
