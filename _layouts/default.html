@@ -63,31 +63,7 @@
 
 <body class="c5">
     <div class="container c4">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/index.html">
-                        <img alt="Icon" height="20" src="logo_small_vector.png">
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/members.html">Members</a></li>
-                        <li><a href="/streams.html">Streams</a></li>
-                        <li><a href="/servers.html">Servers</a></li>
-                        <li><a href="/quotes.html">Quotes</a></li>
-                        <li><a href="/gps.html">GPS</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% include navigation.html %}
 
         <!-- <[end header section]> -->
 		
@@ -106,12 +82,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha256-kJrlY+s09+QoWjpkOrXXwhxeaoDz9FW5SaxF8I0DibQ=" crossorigin="anonymous"></script>
-    <script>
-        // highlight current page button in navbar
-        $(document).ready(function() {
-            $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-        });
-    </script>
 </body>
 
 </html>

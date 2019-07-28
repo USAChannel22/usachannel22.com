@@ -1,0 +1,12 @@
+- name: Home
+  link: /
+- name: Members
+  link: /members.html
+- name: Streams
+  link: /streams.html
+- name: Servers
+  link: /servers.html
+- name: Quotes
+  link: /quotes.html
+- name: GPS
+  link: /gps.html
