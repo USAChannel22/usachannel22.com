@@ -25,23 +25,25 @@ title: Servers
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
-			<table class="table table-bordered">
-				<tbody>
-				{% for entry in site.data.servers %}
-					{% if entry.gametitle == type.gametitle %} 
-							<tr>
-								<th>{{ entry.servertitle }}</th>
-								{% if entry.serverurl %}
-									<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
-								{% else %}
-									<td>{{ entry.serveraddress }}</td>
-								{% endif %}
-								<td>{{ entry.serveraccess }}</td>
-							</tr>
-					{% endif %}
-				{% endfor %}
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<tbody>
+					{% for entry in site.data.servers %}
+						{% if entry.gametitle == type.gametitle %} 
+								<tr>
+									<th>{{ entry.servertitle }}</th>
+									{% if entry.serverurl %}
+										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+									{% else %}
+										<td>{{ entry.serveraddress }}</td>
+									{% endif %}
+									<td>{{ entry.serveraccess }}</td>
+								</tr>
+						{% endif %}
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	{% endunless %}
 {% endfor %}
