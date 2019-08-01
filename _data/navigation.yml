@@ -8,5 +8,7 @@
   link: /servers.html
 - name: Quotes
   link: /quotes.html
+- name: History
+  link: /history.html
 - name: GPS
   link: /gps.html
