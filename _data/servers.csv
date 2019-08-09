@@ -1,9 +1,8 @@
 gametitle,gamedownload,servertitle,serveraddress,serverurl,serveraccess
-TeamSpeak,https://www.teamspeak.com/en/downloads/,USA Channel 22 – Primary,teamspeak.usachannel22.com,ts3server://teamspeak.usachannel22.com,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,USA Channel 22 – Backup 1,backup.teamspeak.usachannel22.com,ts3server://backup.teamspeak.usachannel22.com,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,USA Channel 22 – Backup 2,teamspeak.base11.usachannel22.com,ts3server://teamspeak.base11.usachannel22.com,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,DubPhobia – Primary,dub.ovh,ts3server://dub.ovh,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,DubPhobia – Backup,2.dub.ovh,ts3server://2.dub.ovh,Public
+TeamSpeak,https://www.teamspeak.com/en/downloads/,USA Channel 22 TeamSpeak Server,teamspeak.usachannel22.com,ts3server://teamspeak.usachannel22.com,Public
+TeamSpeak,https://www.teamspeak.com/en/downloads/,Base 2 Backup,teamspeak.base2.usachannel22.com,ts3server://teamspeak.base2.usachannel22.com,Public
+TeamSpeak,https://www.teamspeak.com/en/downloads/,Base 1 Backup,teamspeak.base1.usachannel22.com,ts3server://teamspeak.base1.usachannel22.com,Public
+TeamSpeak,https://www.teamspeak.com/en/downloads/,Base 11 Backup,teamspeak.base11.usachannel22.com,ts3server://teamspeak.base11.usachannel22.com,Public
 Minecraft – TPPI Modpack,https://www.technicpack.net/modpack/tppi.552559,Test Pack Please Ignore,tppi.usachannel22.com,,Members only
 Minecraft – Madigan's Anderworld Modpack (Stable),https://www.technicpack.net/modpack/madigans-anderworld.57768,Madigan's Anderworld SMP,ma-smp.usachannel22.com,,Members only
 Minecraft – Madigan's Anderworld Modpack (Beta),https://www.technicpack.net/modpack/madigans-anderworld-beta-v.1172153,Madigan's Anderworld Jihad Akbar,ma-jihad.usachannel22.com,,Members only
