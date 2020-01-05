@@ -16,3 +16,10 @@ social:
 twitter:
   username: usachannel22
   card: summary
+  
+  
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/logo_small.png
