@@ -1,0 +1,18 @@
+plugins:
+  - jekyll-seo-tag
+
+title: USA Channel 22
+
+description: USA Channel 22 is a small community of gamers and tech enthusiasts with over 20 members.
+
+logo: /assets/images/logo_full.png
+
+author: stere0123
+
+social:
+  - https://youtube.com/usachannel22
+  - https://github.com/usachannel22
+  
+twitter:
+  username: usachannel22
+  card: summary
