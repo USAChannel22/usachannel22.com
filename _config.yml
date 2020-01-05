@@ -24,4 +24,4 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/logo_small.png
+      image: /assets/images/logo_small_vector_full.png
