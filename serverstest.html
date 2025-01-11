@@ -4,6 +4,7 @@ title: Servers
 description: List of dedicated servers hosted by USA Channel 22
 ---
 
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 Servers</h3>
@@ -15,11 +16,12 @@ description: List of dedicated servers hosted by USA Channel 22
 	</div>
 </div>
 
+
 {% assign last_gametitle = "none" %} 
 {% for type in site.data.servers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.gamebg }}');">
+		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: 50% {{ type.GameBGY }};">
 			<div class="panel-heading" style="background-color: #AAAAAAAA">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
