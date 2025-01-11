@@ -23,7 +23,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 85% auto;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -43,6 +43,7 @@ description: List of dedicated servers hosted by USA Channel 22
 					<tr>
 						<th class="col-md-4"><b>Name</b></th>
 						<td class="col-md-2"><b>Address</b></td>
+						<td class="col-md-2"><b>Modpack</b></td>
 						<td class="col-md-2"><b>Status (not realtime)</b></td>
 					</tr>
 					{% for entry in site.data.serverspublic %}
@@ -54,7 +55,17 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% else %}
 										<td>{{ entry.serveraddress }}</td>
 									{% endif %}
-									<td class="col-md-2">{{ entry.serveraccess }}</td>
+									
+									<td class="col-md-2">{{ entry.Modpack }}</td>
+									
+									{% if entry.serveraccess == "Online (Probably)" %}
+										<td class="col-md-2" style="color: #00FF00">{{ entry.serveraccess }}</td>
+									{% else if entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+									{% else %}
+										<td class="col-md-2" style="color: #AAAAAA">{{ entry.serveraccess }}</td>
+									{% endif %}
+									
 								</tr>
 								
 						{% endif %}
@@ -70,6 +81,8 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 
+<br>
+<br>
 <br>
 <br>
 
@@ -92,7 +105,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serversmembers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 85% auto">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -101,7 +114,7 @@ description: List of dedicated servers hosted by USA Channel 22
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
 			
-			<div class="table-responsive" style="background-color: #0000066;">
+			<div class="table-responsive" style="background-color: #00000088;">
 			
 				<div class="panel-body">
 					{{ type.gamedescription }}
@@ -112,6 +125,7 @@ description: List of dedicated servers hosted by USA Channel 22
 					<tr>
 						<th class="col-md-4"><b>Name</b></th>
 						<td class="col-md-2"><b>Address</b></td>
+						<td class="col-md-2"><b>Modpack</b></td>
 						<td class="col-md-2"><b>Status (not realtime)</b></td>
 					</tr>
 					{% for entry in site.data.serversmembers %}
@@ -123,6 +137,7 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% else %}
 										<td>{{ entry.serveraddress }}</td>
 									{% endif %}
+									<td class="col-md-2">{{ entry.Modpack }}</td>
 									<td class="col-md-2">{{ entry.serveraccess }}</td>
 								</tr>
 								
