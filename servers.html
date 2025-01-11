@@ -23,16 +23,16 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: center {{ type.GameBGY }};">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};">
 		
-			<div class="panel-heading" style="background-color: #00000099">
+			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
 			
-			<div class="table-responsive" style="background-color: #000000CC;">
+			<div class="table-responsive" style="background-color: #00000044;">
 			
 				<div class="panel-body">
 					{{ type.gamedescription }}
@@ -70,6 +70,11 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 
+<br>
+<br>
+
+
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 - Members Servers</h3>
@@ -87,16 +92,16 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serversmembers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: center {{ type.GameBGY }};">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};">
 		
-			<div class="panel-heading" style="background-color: #00000099">
+			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
 			
-			<div class="table-responsive" style="background-color: #000000CC;">
+			<div class="table-responsive" style="background-color: #00000044;">
 			
 				<div class="panel-body">
 					{{ type.gamedescription }}

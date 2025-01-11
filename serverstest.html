@@ -5,32 +5,34 @@ description: List of dedicated servers hosted by USA Channel 22
 ---
 
 
+
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">USA Channel 22 Servers</h3>
+		<h3 class="panel-title">USA Channel 22 - Public Servers</h3>
 	</div>
 	<div class="panel-body">
-		This is a list of most of the dedicated servers that we host. Some servers may be missing from this list. Many of these servers are intended for our own use and are whitelisted to prevent abuse. If you are interested, contact us to request access.
+		Here is a list of pur publicly available servers. To report any issues, please contact us on Siscord in the apropriate channel for the fastest response. Link on homepage.
 		<br><br> 
-		View the status of some of our other services on our Uptime Robot page: <a href="https://stats.uptimerobot.com/573oyH30Q">https://stats.uptimerobot.com/573oyH30Q</a>
+		<a href="https://stats.uptimerobot.com/573oyH30Q">Uptime Robot</a>
 	</div>
 </div>
 
 
+
 {% assign last_gametitle = "none" %} 
-{% for type in site.data.servers %}
+{% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: center {{ type.GameBGY }};">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};">
 		
-			<div class="panel-heading" style="background-color: #00000099">
+			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
 			
-			<div class="table-responsive" style="background-color: #000000CC;">
+			<div class="table-responsive" style="background-color: #00000088;">
 			
 				<div class="panel-body">
 					{{ type.gamedescription }}
@@ -43,7 +45,76 @@ description: List of dedicated servers hosted by USA Channel 22
 						<td class="col-md-2"><b>Address</b></td>
 						<td class="col-md-2"><b>Status (not realtime)</b></td>
 					</tr>
-					{% for entry in site.data.servers %}
+					{% for entry in site.data.serverspublic %}
+						{% if entry.gametitle == type.gametitle %} 
+								<tr>
+									<th class="col-md-4">{{ entry.servertitle }}</th>
+									{% if entry.serverurl %}
+										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+									{% else %}
+										<td>{{ entry.serveraddress }}</td>
+									{% endif %}
+									<td class="col-md-2">{{ entry.serveraccess }}</td>
+								</tr>
+								
+						{% endif %}
+					{% endfor %}
+					</tbody>
+				</table>
+				
+			</div>
+			
+		</div>
+	{% endunless %}
+{% endfor %}
+
+
+
+<br>
+<br>
+
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">USA Channel 22 - Members Servers</h3>
+	</div>
+	<div class="panel-body">
+		It is free to be a member or an associate of USA Channel 22, the main rule is you can't be a dick.
+		<br><br> 
+		To join, simply join our Discord and introduce yourself. Link is on the homepage.
+	</div>
+</div>
+
+
+
+{% assign last_gametitle = "none" %} 
+{% for type in site.data.serversmembers %}
+	{% unless last_gametitle == type.gametitle %}
+		{% assign last_gametitle = type.gametitle %}
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};">
+		
+			<div class="panel-heading" style="background-color: #000000CC">
+				{% if type.gamedownload %}
+					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
+				{% endif %}
+				<h3 class="panel-title">{{ type.gametitle }}</h3> 
+			</div>
+			
+			<div class="table-responsive" style="background-color: #0000066;">
+			
+				<div class="panel-body">
+					{{ type.gamedescription }}
+				</div>
+				
+				<table class="table table-bordered">
+					<tbody>
+					<tr>
+						<th class="col-md-4"><b>Name</b></th>
+						<td class="col-md-2"><b>Address</b></td>
+						<td class="col-md-2"><b>Status (not realtime)</b></td>
+					</tr>
+					{% for entry in site.data.serversmembers %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 									<th class="col-md-4">{{ entry.servertitle }}</th>
