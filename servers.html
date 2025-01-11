@@ -4,6 +4,7 @@ title: Servers
 description: List of dedicated servers hosted by USA Channel 22
 ---
 
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 Servers</h3>
@@ -15,12 +16,13 @@ description: List of dedicated servers hosted by USA Channel 22
 	</div>
 </div>
 
+
 {% assign last_gametitle = "none" %} 
 {% for type in site.data.servers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.gamebg }}');">
-			<div class="panel-heading">
+		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: 50% {{ type.GameBGY }};background-color: #00000099;">
+			<div class="panel-heading" style="background-color: #00000099">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
 				{% endif %}
@@ -32,6 +34,11 @@ description: List of dedicated servers hosted by USA Channel 22
 				</div>
 				<table class="table table-bordered">
 					<tbody>
+					<tr>
+						<th class="col-md-4"><b>Name</b></th>
+						<td class="col-md-2"><b>Address</b></td>
+						<td class="col-md-2"><b>Status (not realtime)</b></td>
+					</tr>
 					{% for entry in site.data.servers %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
@@ -43,6 +50,7 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% endif %}
 									<td class="col-md-2">{{ entry.serveraccess }}</td>
 								</tr>
+								
 						{% endif %}
 					{% endfor %}
 					</tbody>
