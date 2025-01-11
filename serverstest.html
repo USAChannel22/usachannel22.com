@@ -43,7 +43,7 @@ description: List of dedicated servers hosted by USA Channel 22
 		<h3 class="panel-title">USA Channel 22 - Public Servers</h3>
 	</div>
 	<div class="panel-body">
-		Here is a list of pur publicly available servers. To report any issues, please contact us on Siscord in the apropriate channel for the fastest response. Link on homepage.
+		Here is a list of our publicly available servers. To report any issues, please contact us on Discord in the apropriate channel for the fastest response. Link on homepage.
 		<br><br> 
 		<a href="https://stats.uptimerobot.com/573oyH30Q">Uptime Robot</a>
 	</div>
@@ -132,9 +132,8 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									{% if entry.LiveStatusService contains "LF" %}
 										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										{% endif %}
 										
-									{% elsif entry.LiveStatusService contains "GS" %}
+									{% else if entry.LiveStatusService contains "GS" %}
 										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
