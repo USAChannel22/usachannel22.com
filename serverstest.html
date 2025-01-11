@@ -4,145 +4,22 @@ title: Servers
 description: List of dedicated servers hosted by USA Channel 22
 ---
 
-
-
-
-
-<meta name="robots" content="noindex,nofollow" />
-
-
-
-
-
-<style type="text/css">
-.bgimgts3 {
-    background-image: url('./assets/images/servers/ts3_bg.jpg');
-}
-.bgimgsamp {
-    background-image: url('./assets/images/servers/samp_bg.jpg');
-}
-</style>
-
-
-
-
-
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Public Servers</h3>
+		<h3 class="panel-title">USA Channel 22 Servers</h3>
 	</div>
 	<div class="panel-body">
-		These servers are open to the general public 
+		This is a list of most of the dedicated servers that we host. Some servers may be missing from this list. Many of these servers are intended for our own use and are whitelisted to prevent abuse. If you are interested, contact us to request access.
 		<br><br> 
 		View the status of some of our other services on our Uptime Robot page: <a href="https://stats.uptimerobot.com/573oyH30Q">https://stats.uptimerobot.com/573oyH30Q</a>
 	</div>
 </div>
 
-
-
-
-
-<div class="panel panel-default bgimgts3">
-	<div class="panel-heading">
-		<a href="https://teamspeak.com/en/downloads/" class="pull-right">(Download Here)</a>	
-		<h3 class="panel-title">TeamSpeak 3</h3> 
-	</div>
-	<div class="table-responsive">
-		<table class="table table-bordered">
-			<tbody>
-			
-				<div class="panel-body">
-				Teamspeak 3 was our primary form of communication after Teamspeak 2, until we switched to Discord (link on homepage).<br>
-				<br>
-				TS3 is still used by some for normal communications, as well as for ArmA 3's radio mod Task Force Radio (TFR).
-				</div>
-				
-				<tr>
-					<th class="col-md-4"><i>Name</i></th>
-					<td class="col-md-2"><i>Address</i></td>
-					<td class="col-md-2"><i>Status (not realtime)</i></td>
-				</tr>
-				
-				<tr>
-					<th class="col-md-4">Primary Server</th>
-					<td><a href="TS3Server://Teamspeak.USAChannel22.com">Teamspeak.USAChannel22.com</a></td>
-					<td class="col-md-2">Online (Probably)</td>
-				</tr>
-				
-				<tr>
-					<th class="col-md-4">Base 11 Backup</th>
-					<td><a href="TS3Server://Teamspeak.Base11.USAChannel22.com">Teamspeak.Base11.USAChannel22.com</a></td>
-					<td class="col-md-2">Online (Probably)</td>
-				</tr>
-				
-				<tr>
-					<th class="col-md-4">Base 2 Backup</th>
-					<td><a href="TS3Server://Teamspeak.Base2.USAChannel22.com">Teamspeak.Base2.USAChannel22.com</a></td>
-					<td class="col-md-2">Offline - Moving</td>
-				</tr>
-				
-				<tr>
-					<th class="col-md-4">Base 1 Backup</th>
-					<td><a href="TS3Server://Teamspeak.Base1.USAChannel22.com">Teamspeak.Base1.USAChannel22.com</a></td>
-					<td class="col-md-2">Offline - Hiatus</td>
-				</tr>
-				
-			</tbody>
-		</table>
-	</div>
-</div>
-
-
-
-<div class="panel panel-default bgimgsamp">
-	<div class="panel-heading">
-		<a href="https://www.open.mp/" class="pull-right">Get game, then Download Here</a>	 
-		<h3 class="panel-title">GTA San Andreas Multiplayer</h3>
-	</div>
-	<div class="table-responsive">
-		<table class="table table-bordered">
-			<tbody>
-			
-				<div class="panel-body">
-				Where it all began. SA-MP (and now the compatible Open.MP) is a multiplayer mod for Grand Theft Auto: San Andreas. Ch22 got started on the SA-MP Server LS-RCR when it was only a small pile of hot garbage that had a couple good slices of pizza left.
-				</div>
-			
-				<tr>
-					<th class="col-md-4"><i>Name</i></th>
-					<td class="col-md-2"><i>Address</i></td>
-					<td class="col-md-2"><i>Statis (not realtime)</i></td>
-				</tr>
-				
-				<tr>
-					<th class="col-md-4">Hardcore Naval Warfare</th>
-					<th class="col-md-4">NW.SAMP.Ch22.US:7000</th>
-					<td class="col-md-2">Online - Testing</td>
-				</tr>
-				
-				<tr>
-					<th class="col-md-4">Testing Server (Basically a free for all if you don't piss anyone off)</th>
-					<th class="col-md-4">TS.SAMP.Ch22.US:7000</th>
-					<td class="col-md-2">Online (Probably)</td>
-				</tr>
-				
-			</tbody>
-		</table>
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-{% assign last_gametitle = "none" %}
+{% assign last_gametitle = "none" %} 
 {% for type in site.data.servers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default">
+		<div class="panel panel-default" style=background-image: url('{{ type.GameBG }}');>
 			<div class="panel-heading">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
@@ -150,6 +27,9 @@ description: List of dedicated servers hosted by USA Channel 22
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
 			<div class="table-responsive">
+				<div class="panel-body">
+					{{ type.gamedescription }}
+				</div>
 				<table class="table table-bordered">
 					<tbody>
 					{% for entry in site.data.servers %}
@@ -171,21 +51,3 @@ description: List of dedicated servers hosted by USA Channel 22
 		</div>
 	{% endunless %}
 {% endfor %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
