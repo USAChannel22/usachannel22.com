@@ -27,6 +27,9 @@ description: List of dedicated servers hosted by USA Channel 22
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
 			<div class="table-responsive">
+				<div class="panel-body">
+					{{ type.gamedescription }}
+				</div>
 				<table class="table table-bordered">
 					<tbody>
 					{% for entry in site.data.servers %}
