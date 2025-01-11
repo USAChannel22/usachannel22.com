@@ -16,11 +16,7 @@ description: List of dedicated servers hosted by USA Channel 22
     .croplistforge img {
         width: 234px;
         height: 60px;
-<<<<<<< HEAD
         margin: -43px 0 0 -173px;
-=======
-        margin: -40px 0 0 -170px;
->>>>>>> ddb3f0913d72d1164ad09e2b052e0f612405b305
     }
 	
 	
@@ -138,7 +134,7 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else if entry.LiveStatusService contains "GS" %}
-										<td><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
