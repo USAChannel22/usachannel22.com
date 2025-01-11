@@ -21,18 +21,21 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.servers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: 50% {{ type.GameBGY }};background-color: #00000099;">
+		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: 50% {{ type.GameBGY }}%;">
+		
 			<div class="panel-heading" style="background-color: #00000099">
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
-			<div class="table-responsive">
+			
+			<div class="table-responsive" style="background-color: #000000CC;">
 				<div class="panel-body">
 					{{ type.gamedescription }}
 				</div>
-				<table class="table table-bordered">
+				
+				<table class="table table-bordered" style="background-color: #000000CC;">
 					<tbody>
 					<tr>
 						<th class="col-md-4"><b>Name</b></th>
@@ -56,6 +59,7 @@ description: List of dedicated servers hosted by USA Channel 22
 					</tbody>
 				</table>
 			</div>
+			
 		</div>
 	{% endunless %}
 {% endfor %}
