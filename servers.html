@@ -21,7 +21,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.servers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: 50% {{ type.GameBGY }}%;">
+		<div class="panel panel-default" style="background-image: url('{{ type.GameBG }}');background-position: center {{ type.GameBGY }};">
 		
 			<div class="panel-heading" style="background-color: #00000099">
 				{% if type.gamedownload %}
