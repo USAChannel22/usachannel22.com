@@ -23,7 +23,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 85% auto;">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -51,10 +51,19 @@ description: List of dedicated servers hosted by USA Channel 22
 								<tr>
 								
 									<th class="col-md-4">{{ entry.servertitle }}</th>
+									
 									{% if entry.serverurl %}
-										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+										{% else %}
+											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% endif %}
 									{% else %}
-										<td>{{ entry.serveraddress }}</td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><i>{{ entry.serveraddress }}</i></td>
+										{% else %}
+											<td>{{ entry.serveraddress }}</td>
+										{% endif %}
 									{% endif %}
 									
 									
@@ -126,7 +135,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serversmembers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 85% auto">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -152,14 +161,53 @@ description: List of dedicated servers hosted by USA Channel 22
 					{% for entry in site.data.serversmembers %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
+								
 									<th class="col-md-4">{{ entry.servertitle }}</th>
+									
 									{% if entry.serverurl %}
-										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+										{% else %}
+											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% endif %}
 									{% else %}
-										<td>{{ entry.serveraddress }}</td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><i>{{ entry.serveraddress }}</i></td>
+										{% else %}
+											<td>{{ entry.serveraddress }}</td>
+										{% endif %}
 									{% endif %}
-									<td class="col-md-2">{{ entry.Modpack }}</td>
-									<td class="col-md-2">{{ entry.serveraccess }}</td>
+									
+									
+									
+									{% if entry.Modpack contains "None" %}
+										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
+										
+									{% else if entry.Modpack contains "Automatic" %}
+										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
+										
+									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
+										
+									{% else if entry.Modpack contains "Manual" %}
+										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
+										
+									{% else %}
+										<td class="col-md-2" style="color: #FFFFFF">{{ entry.Modpack }}</td>
+									{% endif %}
+									
+									
+									
+									{% if entry.serveraccess contains "Online" %}
+										<td class="col-md-2" style="color: #00FF00">{{ entry.serveraccess }}</td>
+										
+									{% else if entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+										
+									{% else %}
+										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
+									{% endif %}
+									
 								</tr>
 								
 						{% endif %}
