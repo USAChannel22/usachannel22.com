@@ -6,6 +6,36 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 
+<style>
+   .croplistforge {
+        width: 234px;
+        height: 60px;
+        overflow: hidden;
+    }
+
+    .croplistforge img {
+        width: 234px;
+        height: 60px;
+        margin: -35px 0 0 -165px;
+    }
+	
+	
+   .cropgamestate {
+        width: 234px;
+        height: 60px;
+        overflow: hidden;
+    }
+
+    .cropgamestate img {
+        width: 234px;
+        height: 60px;
+        margin: -35px 0 0 -165px;
+    }
+</style>
+
+
+
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 - Public Servers</h3>
@@ -44,7 +74,8 @@ description: List of dedicated servers hosted by USA Channel 22
 						<th class="col-md-4"><b>Name</b></th>
 						<td class="col-md-2"><b>Address</b></td>
 						<td class="col-md-2"><b>Modpack</b></td>
-						<td class="col-md-2"><b>Status (not realtime)</b></td>
+						<td class="col-md-2"><b>Operation</b></td>
+						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
 					{% for entry in site.data.serverspublic %}
 						{% if entry.gametitle == type.gametitle %} 
@@ -91,6 +122,17 @@ description: List of dedicated servers hosted by USA Channel 22
 										
 									{% else if entry.serveraccess contains "Offline" %}
 										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+										
+									{% else %}
+										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
+									{% endif %}
+									
+									
+									{% if entry.LiveStatusService contains "LF" %}
+										<td><img src="{{ entry.LiveStatusURL }}" class="myImage" class="croplistforge"></td>
+										
+									{% else if entry.LiveStatusService contains "GS" %}
+										<td><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
