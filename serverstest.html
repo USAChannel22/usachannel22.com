@@ -58,9 +58,9 @@ description: List of dedicated servers hosted by USA Channel 22
 				</div>
 				
 				<tr>
-					<th class="col-md-4">Name</th>
-					<td class="col-md-2">Address</td>
-					<td class="col-md-2">Statis (not realtime)</td>
+					<th class="col-md-4"><i>Name</i></th>
+					<td class="col-md-2"><i>Address</i></td>
+					<td class="col-md-2"><i>Status (not realtime)</i></td>
 				</tr>
 				
 				<tr>
@@ -103,10 +103,14 @@ description: List of dedicated servers hosted by USA Channel 22
 		<table class="table table-bordered">
 			<tbody>
 			
+				<div class="panel-body">
+				Where it all began. SA-MP (and now the compatible Open.MP) is a multiplayer mod for Grand Theft Auto: San Andreas. Ch22 got started on the SA-MP Server LS-RCR when it was only a small pile of hot garbage that had a couple good slices of pizza left.
+				</div>
+			
 				<tr>
-					<th class="col-md-4">Name</th>
-					<td class="col-md-2">Address</td>
-					<td class="col-md-2">Statis (not realtime)</td>
+					<th class="col-md-4"><i>Name</i></th>
+					<td class="col-md-2"><i>Address</i></td>
+					<td class="col-md-2"><i>Statis (not realtime)</i></td>
 				</tr>
 				
 				<tr>
@@ -125,6 +129,48 @@ description: List of dedicated servers hosted by USA Channel 22
 		</table>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+{% assign last_gametitle = "none" %}
+{% for type in site.data.servers %}
+	{% unless last_gametitle == type.gametitle %}
+		{% assign last_gametitle = type.gametitle %}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{% if type.gamedownload %}
+					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
+				{% endif %}
+				<h3 class="panel-title">{{ type.gametitle }}</h3> 
+			</div>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<tbody>
+					{% for entry in site.data.servers %}
+						{% if entry.gametitle == type.gametitle %} 
+								<tr>
+									<th class="col-md-4">{{ entry.servertitle }}</th>
+									{% if entry.serverurl %}
+										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+									{% else %}
+										<td>{{ entry.serveraddress }}</td>
+									{% endif %}
+									<td class="col-md-2">{{ entry.serveraccess }}</td>
+								</tr>
+						{% endif %}
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	{% endunless %}
+{% endfor %}
 
 
 
