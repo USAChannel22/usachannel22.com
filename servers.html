@@ -53,13 +53,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									<th class="col-md-4">{{ entry.servertitle }}</th>
 									
 									{% if entry.serverurl %}
-										{% if entry.Modpack contains "Server List" %}
+										{% if entry.Modpack contains "Server List" or if entry.Modpack contains "Game Ranger" or if entry.Modpack contains "Processing" %}
 											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
 										{% else %}
 											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
 										{% endif %}
 									{% else %}
-										{% if entry.Modpack contains "Server List" %}
+										{% if entry.Modpack contains "Server List" or if entry.Modpack contains "Game Ranger" or if entry.Modpack contains "Processing" %}}
 											<td><i>{{ entry.serveraddress }}</i></td>
 										{% else %}
 											<td>{{ entry.serveraddress }}</td>
@@ -165,13 +165,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									<th class="col-md-4">{{ entry.servertitle }}</th>
 									
 									{% if entry.serverurl %}
-										{% if entry.Modpack contains "Server List" %}
+										{% if entry.Modpack contains "Server List" or if entry.Modpack contains "Game Ranger" or if entry.Modpack contains "Processing" %}
 											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
 										{% else %}
 											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
 										{% endif %}
 									{% else %}
-										{% if entry.Modpack contains "Server List" %}
+										{% if entry.Modpack contains "Server List" or if entry.Modpack contains "Game Ranger" or if entry.Modpack contains "Processing" %}}
 											<td><i>{{ entry.serveraddress }}</i></td>
 										{% else %}
 											<td>{{ entry.serveraddress }}</td>
