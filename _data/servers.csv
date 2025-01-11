@@ -1,6 +1,6 @@
-gametitle,gamedownload,servertitle,serveraddress,serverurl,serveraccess
-TeamSpeak,https://www.teamspeak.com/en/downloads/,USA Channel 22 TeamSpeak Server,teamspeak.usachannel22.com,ts3server://teamspeak.usachannel22.com,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,Base 2 Backup,teamspeak.base2.usachannel22.com,ts3server://teamspeak.base2.usachannel22.com,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,Base 1 Backup,teamspeak.base1.usachannel22.com,ts3server://teamspeak.base1.usachannel22.com,Public
-TeamSpeak,https://www.teamspeak.com/en/downloads/,Base 11 Backup,teamspeak.base11.usachannel22.com,ts3server://teamspeak.base11.usachannel22.com,Public
-SAMP,https://open.mp/,Naval Warfare,NW.SAMP.Ch22.US:7000,,Online - Testing
+gametitle,gamedescription,gamedownload,servertitle,serveraddress,serverurl,serveraccess
+TeamSpeak,"Teamspeak 3 was our primary form of communication after Teamspeak 2, until we switched to Discord (link on homepage).<br><br>TS3 is still used by some for normal communications, as well as for ArmA 3's radio mod Task Force Radio (TFR). ",https://www.teamspeak.com/en/downloads/,USA Channel 22 TeamSpeak Server,teamspeak.usachannel22.com,ts3server://teamspeak.usachannel22.com,Public
+TeamSpeak,"Teamspeak 3 was our primary form of communication after Teamspeak 2, until we switched to Discord (link on homepage).<br><br>TS3 is still used by some for normal communications, as well as for ArmA 3's radio mod Task Force Radio (TFR). ",https://www.teamspeak.com/en/downloads/,Base 2 Backup,teamspeak.base2.usachannel22.com,ts3server://teamspeak.base2.usachannel22.com,Public
+TeamSpeak,"Teamspeak 3 was our primary form of communication after Teamspeak 2, until we switched to Discord (link on homepage).<br><br>TS3 is still used by some for normal communications, as well as for ArmA 3's radio mod Task Force Radio (TFR). ",https://www.teamspeak.com/en/downloads/,Base 1 Backup,teamspeak.base1.usachannel22.com,ts3server://teamspeak.base1.usachannel22.com,Public
+TeamSpeak,"Teamspeak 3 was our primary form of communication after Teamspeak 2, until we switched to Discord (link on homepage).<br><br>TS3 is still used by some for normal communications, as well as for ArmA 3's radio mod Task Force Radio (TFR). ",https://www.teamspeak.com/en/downloads/,Base 11 Backup,teamspeak.base11.usachannel22.com,ts3server://teamspeak.base11.usachannel22.com,Public
+SAMP,"San Andreas Multiplayer",https://open.mp/,Naval Warfare,NW.SAMP.Ch22.US:7000,,Online - Testing
