@@ -132,13 +132,12 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									{% if entry.LiveStatusService contains "LF" %}
 										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-									{% endif %}
+										{% endif %}
 										
-									{% if entry.LiveStatusService contains "GS" %}
+									{% elsif entry.LiveStatusService contains "GS" %}
 										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-									{% endif %}
 										
-									{% if not entry.LiveStatusService %}
+									{% else %}
 										<td><i>Not Monitored</i></td>
 									{% endif %}
 									
