@@ -23,7 +23,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 85% auto;">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -51,10 +51,19 @@ description: List of dedicated servers hosted by USA Channel 22
 								<tr>
 								
 									<th class="col-md-4">{{ entry.servertitle }}</th>
+									
 									{% if entry.serverurl %}
-										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+										{% else %}
+											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% endif %}
 									{% else %}
-										<td>{{ entry.serveraddress }}</td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><i>{{ entry.serveraddress }}</i></td>
+										{% else %}
+											<td>{{ entry.serveraddress }}</td>
+										{% endif %}
 									{% endif %}
 									
 									
@@ -116,7 +125,7 @@ description: List of dedicated servers hosted by USA Channel 22
 	<div class="panel-body">
 		It is free to be a member or an associate of USA Channel 22, the main rule is you can't be a dick.
 		<br><br> 
-		To join, simply join our Discord and introduce yourself. Link is on the homepage.
+		That being said, MOST of these servers are open to all members and associates, though some may have extra requirements. To join, simply join our Discord and introduce yourself. Link is on the homepage.
 	</div>
 </div>
 
@@ -126,7 +135,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serversmembers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 85% auto">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -154,10 +163,19 @@ description: List of dedicated servers hosted by USA Channel 22
 								<tr>
 								
 									<th class="col-md-4">{{ entry.servertitle }}</th>
+									
 									{% if entry.serverurl %}
-										<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+										{% else %}
+											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% endif %}
 									{% else %}
-										<td>{{ entry.serveraddress }}</td>
+										{% if entry.Modpack contains "Server List" %}
+											<td><i>{{ entry.serveraddress }}</i></td>
+										{% else %}
+											<td>{{ entry.serveraddress }}</td>
+										{% endif %}
 									{% endif %}
 									
 									
