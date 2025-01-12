@@ -11,6 +11,7 @@ description: List of dedicated servers hosted by USA Channel 22
 	background-image: url("/assets/images/servers/bg/website.jpg");
 	background-color: #111111;
 	background-size: fill;
+	position:absolute;
 	}
 
    .croplistforge {
@@ -90,7 +91,7 @@ description: List of dedicated servers hosted by USA Channel 22
 								<tr>
 								
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-3" style="color: #00FF00" title="Yezzy" >{{ entry.servertitle }}</td>
+										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
 										
 									{% else if entry.serveraccess contains "Offline" %}
 										<td class="col-md-3" style="color: #FF0000">{{ entry.servertitle }}</td>
@@ -147,10 +148,10 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>

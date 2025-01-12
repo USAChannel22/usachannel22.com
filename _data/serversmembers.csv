@@ -1,13 +1,13 @@
-gametitle,servertitle,serveraddress,serverurl,Modpack,serveraccess,LiveStatusService,LiveStatusURL,,gamedescription,GameBG,GameBGY,gamedownload
-ArmA III,Jihad N' Chill,JC.A3.Ch22.US,,Manual,Offline - Moving,,,,!AKA Armed Assault 3 is a military combat simulator that we are proud to screw up with pretty much fully functioning mods and (by legal definition) functioning missions.,armaiii,center,https://discord.com/channels/149315605957181440/1059270054253957161/1086261850666184704
-American Truck Simulator,Channel 22 Server,Server List,,None,Online (Probably),,,,Have you ever been decided as to been far like want drive more truck? Well now you can!,ats,center,
-Farming Simulator 22,Ch22's FMPC (Friendly Multinational Plantation Conglomerate),Server List,,Ch22 Modpack Updater,Online (Probably),,,,The ultimate in farming games (probably).,fs22,center,
-Kerbal Space Program,Space Sex (Carrar),SS.KSP.Ch22.US,,Ch22 Modpack Updater,Online (Probably),,,,Space game with moderately realistic physics and orbital mechanics.,ksp,center,
-Kerbal Space Program,Suborbital Prayres,SP.KSP.Ch22.US,,Ch22 Modpack Updater,Online (Probably),,,,,,,
-Minecraft,Anderworld SMP,AW.MC.Ch22.US,,Anderworld,Offline,,,,You are the cube.,mcaw2,center,
-Minecraft,Test Pack Please Ignore,TPPI.MC.Ch22.US,,TPPI,Offline,,,,,,,
-Minecraft,Ryan's Server,,,,Offline,,,,,,,
-Palworld,Furfuck Spectacular,FS.PAL.Ch22.US,,None,Online (Probably),,,,It's not PokEMon,pal,center,
-Satisfactory,Ch22's Environmental Disaster,ED.Sat.Ch22.US,,None,Online (Probably),,,,"Build a factory, pet lizzard thing, and get resources to allow you to build a factory and pet liizard things.",fg,center,
-Sons of The Forest,Legs Inc.,LI.TF.Ch22.US,,None,Offline - Moving,,,,Survival horror game.,sotf,center,
-Terraria,2D Richard,2DR.Ter.Ch22.US,,None,Offline - Moving,,,,Minecraft without a Z axis.,ter,center,
+gametitle,servertitle,ServerDescription,serveraddress,serverurl,Modpack,serveraccess,LiveStatusService,LiveStatusURL,,gamedescription,GameBG,GameBGY,gamedownload
+ArmA III,Jihad N' Chill,"Mostly whatever we feel like playing, but USUALLY it is a base-to-base battle, where each team must protect their bases while destroying enemy bases. <br><br>Inspired by Freedom Fighters, each facility gives that team an advantage.",JC.A3.Ch22.US,,Manual,Offline - Moving,,,,!AKA Armed Assault 3 is a military combat simulator that we are proud to screw up with pretty much fully functioning mods and (by legal definition) functioning missions.,armaiii,center,https://discord.com/channels/149315605957181440/1059270054253957161/1086261850666184704
+American Truck Simulator,Channel 22 Server,All the fun of driving a truck but with none of the hookers or blow.,Server List,,None,Online (Probably),,,,Have you ever been decided as to been far like want drive more truck? Well now you can!,ats,center,
+Farming Simulator 22,Ch22's FMPC (Friendly Multinational Plantation Conglomerate),"2 IG months per IRL day, this is meant to be a relatively faster pace farm sim server. You will have to pay property tax towards the Department of Public Works, who are players who maintain and upgrade roads and other infrastructure.",Server List,,Ch22 Modpack Updater,Online (Probably),,,,The ultimate in farming games (probably).,fs22,center,
+Kerbal Space Program,Space Sex (Carrar),"A carrear mode server, but the carrear is shared by all players, so this is restricted to just those who want to be a part of that (so far its Dylan, Ryan, and Chris).",SS.KSP.Ch22.US,,Ch22 Modpack Updater,Online (Probably),,,,Space game with moderately realistic physics and orbital mechanics.,ksp,center,
+Kerbal Space Program,Suborbital Prayres,"A sadbox server but with realistic difficulty, such as entry reheating and requiring signal for probes to work. KSC is the only receiver, so there is a network of sattelites for communications.",SP.KSP.Ch22.US,,Ch22 Modpack Updater,Online (Probably),,,,,,,
+Minecraft,Anderworld SMP,"The UlTiMaTe modpack. It's on fire, and it's cuming for you!",AW.MC.Ch22.US,,Anderworld,Offline,,,,You are the cube.,mcaw2,center,
+Minecraft,Test Pack Please Ignore,I've got no phucking clue.,TPPI.MC.Ch22.US,,TPPI,Offline,,,,,,,
+Minecraft,Ryan's Server,Ya like dudes?,,,,Offline,,,,,,,
+Palworld,Furfuck Spectacular,Any other Palworld server. Players here tend to be cooperative and kind.,FS.PAL.Ch22.US,,None,Online (Probably),,,,It's not PokEMon,pal,center,
+Satisfactory,Ch22's Environmental Disaster,"Players tend to split off and make their own factories and bases, but still connect roads and raails to the system. We never mind helping anyone get started.",ED.Sat.Ch22.US,,None,Online (Probably),,,,"Build a factory, pet lizzard thing, and get resources to allow you to build a factory and pet liizard things.",fg,center,
+Sons of The Forest,Legs Inc.,"Mostly Eddie, Dylan, and Ryan, but we have had other emmbers on as well. Like Satisfactory, we help eachother but many players like to make their own base. Again we tend to play cooperatively.",LI.TF.Ch22.US,,None,Offline - Moving,,,,Survival horror game.,sotf,center,
+Terraria,2D Richard,"Talk to Chris, something about defeating the dick of Zhoul or something. Good luck.",2DR.Ter.Ch22.US,,None,Offline - Moving,,,,Minecraft without a Z axis.,ter,center,
