@@ -220,7 +220,7 @@ description: List of dedicated servers hosted by USA Channel 22
 						<td class="col-md-2"><b>Operation</b></td>
 						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
-					{% for entry in site.data.serverspublic %}
+					{% for entry in site.data.serversmembers %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
@@ -324,7 +324,6 @@ description: List of dedicated servers hosted by USA Channel 22
 	</div>
 </div>
 
-<p>Boy it sure would be nice if I put a list here.</p>
 {% assign last_gametitle = "none" %} 
 {% for type in site.data.serversother %}
 	{% unless last_gametitle == type.gametitle %}
@@ -353,7 +352,7 @@ description: List of dedicated servers hosted by USA Channel 22
 						<td class="col-md-2"><b>Operation</b></td>
 						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
-					{% for entry in site.data.serverspublic %}
+					{% for entry in site.data.serversother %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
