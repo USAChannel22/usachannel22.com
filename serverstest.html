@@ -10,7 +10,7 @@ description: List of dedicated servers hosted by USA Channel 22
 	body {
 	background-image: url("/assets/images/servers/bg/website.jpg");
 	background-color: #111111;
-	background-size: cover;
+	background-size: fill;
 	}
 
    .croplistforge {
@@ -44,7 +44,7 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 
-<div class="panel panel-default" style="max-width: 1200px;">
+<div class="panel panel-default" style="max-width: 1500px;">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 - Public Servers</h3>
 	</div>
@@ -61,7 +61,7 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto; max-width: 80%;">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto; max-width: 1500px;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
@@ -90,7 +90,7 @@ description: List of dedicated servers hosted by USA Channel 22
 								<tr>
 								
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-3" style="color: #00FF00">{{ entry.servertitle }}</td>
+										<td class="col-md-3" style="color: #00FF00" title="Yezzy" >{{ entry.servertitle }}</td>
 										
 									{% else if entry.serveraccess contains "Offline" %}
 										<td class="col-md-3" style="color: #FF0000">{{ entry.servertitle }}</td>
@@ -149,8 +149,11 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.LiveStatusService contains "LF" %}
 										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
+									{% elsif entry.LiveStatusService contains "GS" %}
+										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										
 									{% else %}
-										<td><i>Not Monitored</i></td>
+										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
 									{% endif %}
 									
 								</tr>
