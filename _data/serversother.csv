@@ -1,3 +1,4 @@
-gametitle,servertitle,ServerDescription,serveraddress,serverurl,Modpack,serveraccess,LiveStatusService,LiveStatusURL,,gamedescription,GameBG,GameBGY,gamedownload
-Runescape 3,Any US FTP nPVP,Typically any English speaking Free-To-Play server without PVP (aside from wilderness).,,,None,Online (Probably),,,,You're greatest adventure!,rs3,center,https://runescape.com/
-Runescape (Old School),Any US FTP nPVP,Typically any English speaking Free-To-Play server without PVP (aside from wilderness).,,,None,Online (Probably),,,,Based off of the 2007 version of Runescape 2. Includes features such as the Grand Exchange.,osrs,center,https://runescape.com/
+gametitle,servertitle,ServerDescription,serveraddress,serverurl,Modpack,serveraccess,PrimaryAdministrator,LiveStatusService,LiveStatusURL,,gamedescription,GameBG,GameBGY,gamedownload
+GTA: San Andreas Multiplayer,Los Santos Roleplay Cope and Robbers,"LS-RCR, where Ch22 started.",Play.LS-RCR.com,samp://Play.LS-RCR.com/,,,,,,,,,,
+Runescape 3,Any US FTP nPVP,Typically any English speaking Free-To-Play server without PVP (aside from wilderness).,,,None,Online (Probably),,,,,You're greatest adventure!,rs3,center,https://runescape.com/
+Runescape (Old School),Any US FTP nPVP,Typically any English speaking Free-To-Play server without PVP (aside from wilderness).,,,None,Online (Probably),,,,,Based off of the 2007 version of Runescape 2. Includes features such as the Grand Exchange.,osrs,center,https://runescape.com/

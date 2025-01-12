@@ -137,13 +137,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
@@ -271,13 +271,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
@@ -403,13 +403,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
