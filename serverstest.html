@@ -11,7 +11,7 @@ description: List of dedicated servers hosted by USA Channel 22
 	background-image: url("/assets/images/servers/bg/website.jpg");
 	background-color: #111111;
 	background-size: fill;
-	position:absolute;
+	background-attachment: fixed;
 	}
 
    .croplistforge {
@@ -94,10 +94,10 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
 										
 									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-3" style="color: #FF0000">{{ entry.servertitle }}</td>
+										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
 										
 									{% else %}
-										<td class="col-md-3" style="color: #FFD800">{{ entry.servertitle }}</td>
+										<td class="col-md-3" style="color: #FFD800" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
 									{% endif %}
 									
 									
@@ -196,11 +196,11 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serversmembers %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto; max-width: 1500px;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
-					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
+					<a href="{{ type.gamedownload }}" class="pull-right">(Download/Install)</a>
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
@@ -217,13 +217,24 @@ description: List of dedicated servers hosted by USA Channel 22
 						<th class="col-md-4"><b>Name</b></th>
 						<td class="col-md-2"><b>Address</b></td>
 						<td class="col-md-2"><b>Modpack</b></td>
-						<td class="col-md-2"><b>Status (not realtime)</b></td>
+						<td class="col-md-2"><b>Operation</b></td>
+						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
-					{% for entry in site.data.serversmembers %}
+					{% for entry in site.data.serverspublic %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
-									<th class="col-md-4">{{ entry.servertitle }}</th>
+									{% if entry.serveraccess contains "Online" %}
+										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
+										
+									{% else if entry.serveraccess contains "Offline" %}
+										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
+										
+									{% else %}
+										<td class="col-md-3" style="color: #FFD800" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
+									{% endif %}
+									
+									
 									
 									{% if entry.serverurl %}
 										{% if entry.Modpack contains "Server List" %}
@@ -271,13 +282,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
-									{% else if entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+									{% elsif entry.LiveStatusService contains "GS" %}
+										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
-										<td><i>Not Monitored</i></td>
+										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
 									{% endif %}
 									
 								</tr>
@@ -314,7 +325,117 @@ description: List of dedicated servers hosted by USA Channel 22
 </div>
 
 <p>Boy it sure would be nice if I put a list here.</p>
-
+{% assign last_gametitle = "none" %} 
+{% for type in site.data.serversother %}
+	{% unless last_gametitle == type.gametitle %}
+		{% assign last_gametitle = type.gametitle %}
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto; max-width: 1500px;">
+		
+			<div class="panel-heading" style="background-color: #000000CC">
+				{% if type.gamedownload %}
+					<a href="{{ type.gamedownload }}" class="pull-right">(Download/Install)</a>
+				{% endif %}
+				<h3 class="panel-title">{{ type.gametitle }}</h3> 
+			</div>
+			
+			<div class="table-responsive" style="background-color: #00000088;">
+			
+				<div class="panel-body">
+					{{ type.gamedescription }}
+				</div>
+				
+				<table class="table table-bordered">
+					<tbody>
+					<tr>
+						<th class="col-md-4"><b>Name</b></th>
+						<td class="col-md-2"><b>Address</b></td>
+						<td class="col-md-2"><b>Modpack</b></td>
+						<td class="col-md-2"><b>Operation</b></td>
+						<td class="col-md-2"><b>Live Status</b></td>
+					</tr>
+					{% for entry in site.data.serverspublic %}
+						{% if entry.gametitle == type.gametitle %} 
+								<tr>
+								
+									{% if entry.serveraccess contains "Online" %}
+										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
+										
+									{% else if entry.serveraccess contains "Offline" %}
+										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
+										
+									{% else %}
+										<td class="col-md-3" style="color: #FFD800" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
+									{% endif %}
+									
+									
+									
+									{% if entry.serverurl %}
+										{% if entry.Modpack contains "Server List" %}
+											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+										{% else %}
+											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
+										{% endif %}
+									{% else %}
+										{% if entry.Modpack contains "Server List" %}
+											<td><i>{{ entry.serveraddress }}</i></td>
+										{% else %}
+											<td>{{ entry.serveraddress }}</td>
+										{% endif %}
+									{% endif %}
+									
+									
+									
+									{% if entry.Modpack contains "None" %}
+										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
+										
+									{% else if entry.Modpack contains "Automatic" %}
+										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
+										
+									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
+										
+									{% else if entry.Modpack contains "Manual" %}
+										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
+										
+									{% else %}
+										<td class="col-md-2" style="color: #FFFFFF">{{ entry.Modpack }}</td>
+									{% endif %}
+									
+									
+									
+									{% if entry.serveraccess contains "Online" %}
+										<td class="col-md-2" style="color: #00FF00">{{ entry.serveraccess }}</td>
+										
+									{% else if entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000">{{ entry.serveraccess }}</td>
+										
+									{% else %}
+										<td class="col-md-2" style="color: #FFD800">{{ entry.serveraccess }}</td>
+									{% endif %}
+									
+									
+									{% if entry.LiveStatusService contains "LF" %}
+										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										
+									{% elsif entry.LiveStatusService contains "GS" %}
+										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										
+									{% else %}
+										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
+									{% endif %}
+									
+								</tr>
+								
+						{% endif %}
+					{% endfor %}
+					</tbody>
+				</table>
+				
+			</div>
+			
+		</div>
+	{% endunless %}
+{% endfor %}
 <br>
 <br>
 <br>
