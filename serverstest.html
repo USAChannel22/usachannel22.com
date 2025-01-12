@@ -34,7 +34,7 @@ description: List of dedicated servers hosted by USA Channel 22
     }
 
     .cropgamestate img {
-		object-fit: cover;
+	object-fit: cover;
         width: 200px;
         height: 95px;
         margin: -35px 0 0 -94px;
@@ -104,13 +104,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									{% if entry.serverurl %}
 										{% if entry.Modpack contains "Server List" %}
-											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+											<td title="You can find this server by using the in-game server list / server browser." ><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
 										{% else %}
 											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
 										{% endif %}
 									{% else %}
 										{% if entry.Modpack contains "Server List" %}
-											<td><i>{{ entry.serveraddress }}</i></td>
+											<td title="You can find this server by using the in-game server list / server browser." ><i>{{ entry.serveraddress }}</i></td>
 										{% else %}
 											<td>{{ entry.serveraddress }}</td>
 										{% endif %}
@@ -220,7 +220,7 @@ description: List of dedicated servers hosted by USA Channel 22
 						<td class="col-md-2"><b>Operation</b></td>
 						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
-					{% for entry in site.data.serverspublic %}
+					{% for entry in site.data.serversmembers %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
@@ -238,13 +238,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									{% if entry.serverurl %}
 										{% if entry.Modpack contains "Server List" %}
-											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+											<td title="You can find this server by using the in-game server list / server browser." ><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
 										{% else %}
 											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
 										{% endif %}
 									{% else %}
 										{% if entry.Modpack contains "Server List" %}
-											<td><i>{{ entry.serveraddress }}</i></td>
+											<td title="You can find this server by using the in-game server list / server browser." ><i>{{ entry.serveraddress }}</i></td>
 										{% else %}
 											<td>{{ entry.serveraddress }}</td>
 										{% endif %}
@@ -324,7 +324,6 @@ description: List of dedicated servers hosted by USA Channel 22
 	</div>
 </div>
 
-<p>Boy it sure would be nice if I put a list here.</p>
 {% assign last_gametitle = "none" %} 
 {% for type in site.data.serversother %}
 	{% unless last_gametitle == type.gametitle %}
@@ -353,7 +352,7 @@ description: List of dedicated servers hosted by USA Channel 22
 						<td class="col-md-2"><b>Operation</b></td>
 						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
-					{% for entry in site.data.serverspublic %}
+					{% for entry in site.data.serversother %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
@@ -371,13 +370,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									{% if entry.serverurl %}
 										{% if entry.Modpack contains "Server List" %}
-											<td><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
+											<td title="You can find this server by using the in-game server list / server browser." ><a href="{{ entry.serverurl }}"><i>{{ entry.serveraddress }}</i></a></td>
 										{% else %}
 											<td><a href="{{ entry.serverurl }}">{{ entry.serveraddress }}</a></td>
 										{% endif %}
 									{% else %}
 										{% if entry.Modpack contains "Server List" %}
-											<td><i>{{ entry.serveraddress }}</i></td>
+											<td title="You can find this server by using the in-game server list / server browser." ><i>{{ entry.serveraddress }}</i></td>
 										{% else %}
 											<td>{{ entry.serveraddress }}</td>
 										{% endif %}
