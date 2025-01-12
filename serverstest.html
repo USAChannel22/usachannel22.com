@@ -7,6 +7,12 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 <style>
+	body {
+	background-image: url("/assets/images/servers/bg/website.jpg");
+	background-color: #111111;
+	background-size: cover;
+	}
+
    .croplistforge {
         width: 234px;
         height: 60px;
@@ -38,7 +44,7 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 
-<div class="panel panel-default">
+<div class="panel panel-default" style="max-width: 1200px;">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 - Public Servers</h3>
 	</div>
@@ -55,11 +61,11 @@ description: List of dedicated servers hosted by USA Channel 22
 {% for type in site.data.serverspublic %}
 	{% unless last_gametitle == type.gametitle %}
 		{% assign last_gametitle = type.gametitle %}
-		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto;">
+		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto; max-width: 80%;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
 				{% if type.gamedownload %}
-					<a href="{{ type.gamedownload }}" class="pull-right">(Download Here)</a>
+					<a href="{{ type.gamedownload }}" class="pull-right">(Download/Install)</a>
 				{% endif %}
 				<h3 class="panel-title">{{ type.gametitle }}</h3> 
 			</div>
@@ -83,7 +89,17 @@ description: List of dedicated servers hosted by USA Channel 22
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
-									<th class="col-md-4">{{ entry.servertitle }}</th>
+									{% if entry.serveraccess contains "Online" %}
+										<td class="col-md-3" style="color: #00FF00">{{ entry.servertitle }}</td>
+										
+									{% else if entry.serveraccess contains "Offline" %}
+										<td class="col-md-3" style="color: #FF0000">{{ entry.servertitle }}</td>
+										
+									{% else %}
+										<td class="col-md-3" style="color: #FFD800">{{ entry.servertitle }}</td>
+									{% endif %}
+									
+									
 									
 									{% if entry.serverurl %}
 										{% if entry.Modpack contains "Server List" %}
@@ -132,9 +148,6 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									{% if entry.LiveStatusService contains "LF" %}
 										<td class="croplistforge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% else if entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td><i>Not Monitored</i></td>
@@ -275,3 +288,40 @@ description: List of dedicated servers hosted by USA Channel 22
 		</div>
 	{% endunless %}
 {% endfor %}
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Other Games and Servers</h3>
+	</div>
+	<div class="panel-body">
+		These are other games and servers that our members tend to play on that are not part of the USA Channel 22 conglomeration.<br>
+		<br>
+		The reason for listing these is so those who may be interested in our community have an idea of the games we play.
+	</div>
+</div>
+
+<p>Boy it sure would be nice if I put a list here.</p>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		These servers require time and dedication to run and manage, but it does not just stop there. We thank the entire administration team for their hard work and commitment to our community, including the moderators upholding rules, the administrators running the game servers, and the administrators physically maintaining a network that spans the globe.<br>
+		<br>
+		While USA Channel 22 may be mostly American, it is made up of members from around the world. Many of whom are gamers, some hobbiests, some professionals, who all share one thing in common: Mild autism.
+	</div>
+</div>
