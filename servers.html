@@ -42,7 +42,10 @@ description: List of dedicated servers hosted by USA Channel 22
     }
 </style>
 
+
+
 <meta http-equiv="refresh" content="300">
+
 
 
 
@@ -125,13 +128,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.Modpack contains "None" %}
 										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Automatic" %}
+									{% elsif entry.Modpack contains "Automatic" %}
 										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+									{% elsif entry.Modpack contains "Ch22 Modpack Updater" %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Manual" %}
+									{% elsif entry.Modpack contains "Manual" %}
 										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
 										
 									{% else %}
@@ -141,21 +144,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+									{% elsif entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -259,13 +262,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.Modpack contains "None" %}
 										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Automatic" %}
+									{% elsif entry.Modpack contains "Automatic" %}
 										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+									{% elsif entry.Modpack contains "Ch22 Modpack Updater" %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Manual" %}
+									{% elsif entry.Modpack contains "Manual" %}
 										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
 										
 									{% else %}
@@ -275,21 +278,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+									{% elsif entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -391,13 +394,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.Modpack contains "None" %}
 										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Automatic" %}
+									{% elsif entry.Modpack contains "Automatic" %}
 										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+									{% elsif entry.Modpack contains "Ch22 Modpack Updater" %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Manual" %}
+									{% elsif entry.Modpack contains "Manual" %}
 										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
 										
 									{% else %}
@@ -407,21 +410,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+									{% elsif entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
