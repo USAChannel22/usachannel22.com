@@ -44,13 +44,20 @@ description: List of dedicated servers hosted by USA Channel 22
 
 
 
+<meta http-equiv="refresh" content="300">
+
+
+
+
 
 <div class="panel panel-default" style="max-width: 1500px;">
 	<div class="panel-heading">
 		<h3 class="panel-title">USA Channel 22 - Public Servers</h3>
 	</div>
 	<div class="panel-body">
-		Here is a list of our publicly available servers. To report any issues, please contact us on <a href="https://USAChannel22.com/discord.html" class="pull-right">Discord</a> in the apropriate channel for the fastest response.
+		Here is a list of our publicly available servers. In this section, servers are completely open to the general public. You can hover over the server name for the server description, or hover over the Operational Status for the head administrators.<br>
+		<br>
+		To report any issues, please contact us on <a href="https://USAChannel22.com/discord.html">Discord</a> in the apropriate channel for the fastest response.
 		<br><br> 
 		<a href="https://stats.uptimerobot.com/573oyH30Q">Uptime Robot</a> is available for monitoring some datacenters and services.
 	</div>
@@ -65,9 +72,6 @@ description: List of dedicated servers hosted by USA Channel 22
 		<div class="panel panel-default" style="background-image: url('/assets/images/servers/bg/{{ type.GameBG }}.jpg');background-position: center {{ type.GameBGY }};background-size: 100% auto; max-width: 1500px;">
 		
 			<div class="panel-heading" style="background-color: #000000CC">
-				{% if type.GameTrailer %}
-					<a href="{{ type.GameTrailer }}" class="pull-right">(Trailer)</a>
-				{% endif %}
 				{% if type.gamedownload %}
 					<a href="{{ type.gamedownload }}" class="pull-right">(Download/Install)</a>
 				{% endif %}
@@ -96,7 +100,7 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.serveraccess contains "Online" %}
 										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
+									{% elsif entry.serveraccess contains "Offline" %}
 										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
 										
 									{% else %}
@@ -124,13 +128,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.Modpack contains "None" %}
 										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Automatic" %}
+									{% elsif entry.Modpack contains "Automatic" %}
 										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+									{% elsif entry.Modpack contains "Ch22 Modpack Updater" %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Manual" %}
+									{% elsif entry.Modpack contains "Manual" %}
 										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
 										
 									{% else %}
@@ -140,21 +144,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+									{% elsif entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -187,9 +191,9 @@ description: List of dedicated servers hosted by USA Channel 22
 		<h3 class="panel-title">USA Channel 22 - Members Servers</h3>
 	</div>
 	<div class="panel-body">
-		It is free to be a member or an associate of USA Channel 22, the main rule is you can't be a dick.
+		It is free to be a member or an associate of USA Channel 22, you just can't be a complete dick (partial penuses allowed).
 		<br><br> 
-		That being said, MOST of these servers are open to all members and associates, though some may have extra requirements. To join, simply join our Discord and introduce yourself. Link is on the homepage.
+		That being said, MOST of these servers are open to all members and associates, though some may have extra requirements. To join, simply join our <a href="https://USAChannel22.com/discord.html">Discord</a> and introduce yourself.
 	</div>
 </div>
 
@@ -230,7 +234,7 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.serveraccess contains "Online" %}
 										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
+									{% elsif entry.serveraccess contains "Offline" %}
 										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
 										
 									{% else %}
@@ -258,13 +262,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.Modpack contains "None" %}
 										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Automatic" %}
+									{% elsif entry.Modpack contains "Automatic" %}
 										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+									{% elsif entry.Modpack contains "Ch22 Modpack Updater" %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Manual" %}
+									{% elsif entry.Modpack contains "Manual" %}
 										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
 										
 									{% else %}
@@ -274,21 +278,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+									{% elsif entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -321,7 +325,7 @@ description: List of dedicated servers hosted by USA Channel 22
 		<h3 class="panel-title">Other Games and Servers</h3>
 	</div>
 	<div class="panel-body">
-		These are other games and servers that our members tend to play on that are not part of the USA Channel 22 conglomeration.<br>
+		These are other games and servers that our members tend to play on, that are not part of the USA Channel 22 conglomeration.<br>
 		<br>
 		The reason for listing these is so those who may be interested in our community have an idea of the games we play.
 	</div>
@@ -362,7 +366,7 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.serveraccess contains "Online" %}
 										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
+									{% elsif entry.serveraccess contains "Offline" %}
 										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
 										
 									{% else %}
@@ -390,13 +394,13 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% if entry.Modpack contains "None" %}
 										<td class="col-md-2" style="color: #00FF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Automatic" %}
+									{% elsif entry.Modpack contains "Automatic" %}
 										<td class="col-md-2" style="color: #FFFF00">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Ch22 Modpack Updater" %}
+									{% elsif entry.Modpack contains "Ch22 Modpack Updater" %}
 										<td class="col-md-2" style="color: #FFD800">{{ entry.Modpack }}</td>
 										
-									{% else if entry.Modpack contains "Manual" %}
+									{% elsif entry.Modpack contains "Manual" %}
 										<td class="col-md-2" style="color: #FF6A00">{{ entry.Modpack }}</td>
 										
 									{% else %}
@@ -406,21 +410,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									
 									
 									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-2" style="color: #00FF00" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #00FF00" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
-									{% else if entry.serveraccess contains "Offline" %}
-										<td class="col-md-2" style="color: #FF0000" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+									{% elsif entry.serveraccess contains "Offline" %}
+										<td class="col-md-2" style="color: #FF0000" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 										
 									{% else %}
-										<td class="col-md-2" style="color: #FFD800" title="{{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
+										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
 									
 									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
