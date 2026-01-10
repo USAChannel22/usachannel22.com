@@ -40,6 +40,25 @@ description: List of dedicated servers hosted by USA Channel 22
         margin: -35px 0 0 -94px;
     
     }
+	
+	
+	.cropiw4m {
+	width: 150;          /* visible width */
+	height: 30px;         /* visible height */
+	overflow: hidden;
+	position: relative;
+	}
+
+	.cropiw4m iframe {
+	width: 200;
+	height: 95px;
+	border: 0;
+	position: absolute;
+	left: -32;              /* keep left side */
+	bottom: 0;            /* anchor to bottom */
+	transform: translate(0px, 0px);
+	}
+	
 </style>
 
 
@@ -161,7 +180,12 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "IW4M" %}
-										<td class="cropgamestate" title="Monitored by IW4M Admin"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropiw4m" title="Monitored by IW4M Admin">
+											<div class="iframe-crop">
+												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
+												</iframe>
+											</div>
+										</td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -298,7 +322,12 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "IW4M" %}
-										<td class="cropgamestate" title="Monitored by IW4M Admin"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropiw4m" title="Monitored by IW4M Admin">
+											<div class="iframe-crop">
+												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
+												</iframe>
+											</div>
+										</td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -433,7 +462,12 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "IW4M" %}
-										<td class="cropgamestate" title="Monitored by IW4M Admin"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										<td class="cropiw4m" title="Monitored by IW4M Admin">
+											<div class="iframe-crop">
+												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
+												</iframe>
+											</div>
+										</td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
