@@ -160,6 +160,9 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% elsif entry.LiveStatusService contains "GS" %}
 										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
+									{% elsif entry.LiveStatusService contains "IW4M" %}
+										<td class="cropgamestate" title="Monitored by IW4M Admin"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
 									{% endif %}
@@ -294,6 +297,9 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% elsif entry.LiveStatusService contains "GS" %}
 										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
+									{% elsif entry.LiveStatusService contains "IW4M" %}
+										<td class="cropgamestate" title="Monitored by IW4M Admin"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
 									{% endif %}
@@ -425,6 +431,9 @@ description: List of dedicated servers hosted by USA Channel 22
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
 										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
+										
+									{% elsif entry.LiveStatusService contains "IW4M" %}
+										<td class="cropgamestate" title="Monitored by IW4M Admin"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
