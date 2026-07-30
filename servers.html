@@ -58,6 +58,42 @@ description: List of dedicated servers hosted by USA Channel 22
 	bottom: 0;            /* anchor to bottom */
 	transform: translate(0px, 0px);
 	}
+
+	.ch22-status-indicator {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45em;
+	font-weight: 600;
+	}
+
+	.ch22-status-indicator::before {
+	content: "";
+	width: 0.75em;
+	height: 0.75em;
+	border-radius: 50%;
+	background: #a0a0a0;
+	box-shadow: 0 0 0.35em currentColor;
+	}
+
+	.ch22-status-online {
+	color: #00ff00;
+	}
+
+	.ch22-status-online::before {
+	background: #00c853;
+	}
+
+	.ch22-status-offline {
+	color: #ff4d4d;
+	}
+
+	.ch22-status-offline::before {
+	background: #e53935;
+	}
+
+	.ch22-status-unknown {
+	color: #c0c0c0;
+	}
 	
 </style>
 
@@ -185,6 +221,11 @@ description: List of dedicated servers hosted by USA Channel 22
 												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
 												</iframe>
 											</div>
+										</td>
+
+									{% elsif entry.LiveStatusService contains "ZBX" %}
+										<td class="ch22-live-status" data-status-url="{{ entry.LiveStatusURL | escape }}" title="Waiting for Zabbix status">
+											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
 										</td>
 										
 									{% else %}
@@ -328,6 +369,11 @@ description: List of dedicated servers hosted by USA Channel 22
 												</iframe>
 											</div>
 										</td>
+
+									{% elsif entry.LiveStatusService contains "ZBX" %}
+										<td class="ch22-live-status" data-status-url="{{ entry.LiveStatusURL | escape }}" title="Waiting for Zabbix status">
+											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
+										</td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -468,6 +514,11 @@ description: List of dedicated servers hosted by USA Channel 22
 												</iframe>
 											</div>
 										</td>
+
+									{% elsif entry.LiveStatusService contains "ZBX" %}
+										<td class="ch22-live-status" data-status-url="{{ entry.LiveStatusURL | escape }}" title="Waiting for Zabbix status">
+											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
+										</td>
 										
 									{% else %}
 										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
@@ -499,3 +550,69 @@ description: List of dedicated servers hosted by USA Channel 22
 		While USA Channel 22 may be mostly American, it is made up of members from around the world. Many of whom are gamers, some hobbiests, some professionals, who all share one thing in common: Mild autism.
 	</div>
 </div>
+
+<script>
+(function () {
+	"use strict";
+
+	var refreshIntervalMilliseconds = 60000;
+	var staleAfterMilliseconds = 180000;
+	var statusClasses = [
+		"ch22-status-online",
+		"ch22-status-offline",
+		"ch22-status-unknown"
+	];
+
+	function setStatus(cell, status, checkedAt) {
+		var indicator = cell.querySelector(".ch22-status-indicator");
+		var checkedDate = checkedAt ? new Date(checkedAt) : null;
+		var validDate = checkedDate && !Number.isNaN(checkedDate.getTime());
+
+		if (
+			(status !== "online" && status !== "offline") ||
+			!validDate ||
+			Date.now() - checkedDate.getTime() > staleAfterMilliseconds
+		) {
+			status = "unknown";
+		}
+
+		statusClasses.forEach(function (className) {
+			indicator.classList.remove(className);
+		});
+		indicator.classList.add("ch22-status-" + status);
+		indicator.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+
+		cell.title = status === "unknown"
+			? "Zabbix status is unavailable or stale"
+			: "Last checked by Zabbix: " + checkedDate.toLocaleString();
+	}
+
+	function refreshStatus(cell) {
+		var endpoint = cell.getAttribute("data-status-url");
+
+		fetch(endpoint, {
+			headers: { "Accept": "application/json" },
+			cache: "no-store"
+		})
+			.then(function (response) {
+				if (!response.ok) {
+					throw new Error("Status endpoint returned " + response.status);
+				}
+				return response.json();
+			})
+			.then(function (payload) {
+				setStatus(cell, payload.status, payload.checked_at);
+			})
+			.catch(function () {
+				setStatus(cell, "unknown", null);
+			});
+	}
+
+	function refreshAllStatuses() {
+		document.querySelectorAll(".ch22-live-status[data-status-url]").forEach(refreshStatus);
+	}
+
+	refreshAllStatuses();
+	window.setInterval(refreshAllStatuses, refreshIntervalMilliseconds);
+}());
+</script>
