@@ -62,14 +62,16 @@ description: List of dedicated servers hosted by USA Channel 22
 	.ch22-status-indicator {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.45em;
+	gap: 0.35em;
 	font-weight: 600;
+	max-width: 100%;
+	white-space: nowrap;
 	}
 
 	.ch22-status-indicator::before {
 	content: "";
-	width: 0.75em;
-	height: 0.75em;
+	width: 0.65em;
+	height: 0.65em;
 	border-radius: 50%;
 	background: #a0a0a0;
 	box-shadow: 0 0 0.35em currentColor;
@@ -101,6 +103,46 @@ description: List of dedicated servers hosted by USA Channel 22
 
 	.ch22-status-detail {
 	margin-top: 0.35em;
+	max-width: 100%;
+	overflow: hidden;
+	}
+
+	.ch22-status-detail.croplistforge,
+	.ch22-status-detail.cropgamestate,
+	.ch22-status-detail.cropiw4m {
+	width: 100%;
+	}
+
+	.ch22-server-table {
+	table-layout: fixed;
+	width: 100%;
+	min-width: 720px;
+	}
+
+	.ch22-server-table th:nth-child(1),
+	.ch22-server-table td:nth-child(1) {
+	width: 34%;
+	}
+
+	.ch22-server-table th:nth-child(2),
+	.ch22-server-table td:nth-child(2) {
+	width: 21%;
+	}
+
+	.ch22-server-table th:nth-child(3),
+	.ch22-server-table td:nth-child(3) {
+	width: 13%;
+	}
+
+	.ch22-server-table th:nth-child(4),
+	.ch22-server-table td:nth-child(4) {
+	width: 17%;
+	}
+
+	.ch22-server-table th:nth-child(5),
+	.ch22-server-table td:nth-child(5) {
+	width: 15%;
+	overflow: hidden;
 	}
 	
 </style>
@@ -147,7 +189,7 @@ description: List of dedicated servers hosted by USA Channel 22
 					{{ type.gamedescription }}
 				</div>
 				
-				<table class="table table-bordered">
+				<table class="table table-bordered ch22-server-table">
 					<tbody>
 					<tr>
 						<th class="col-md-4"><b>Name</b></th>
@@ -308,7 +350,7 @@ description: List of dedicated servers hosted by USA Channel 22
 					{{ type.gamedescription }}
 				</div>
 				
-				<table class="table table-bordered">
+				<table class="table table-bordered ch22-server-table">
 					<tbody>
 					<tr>
 						<th class="col-md-4"><b>Name</b></th>
@@ -467,7 +509,7 @@ description: List of dedicated servers hosted by USA Channel 22
 					{{ type.gamedescription }}
 				</div>
 				
-				<table class="table table-bordered">
+				<table class="table table-bordered ch22-server-table">
 					<tbody>
 					<tr>
 						<th class="col-md-4"><b>Name</b></th>
