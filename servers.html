@@ -94,6 +94,14 @@ description: List of dedicated servers hosted by USA Channel 22
 	.ch22-status-unknown {
 	color: #c0c0c0;
 	}
+
+	.ch22-status-not-monitored {
+	color: #9e9e9e;
+	}
+
+	.ch22-status-detail {
+	margin-top: 0.35em;
+	}
 	
 </style>
 
@@ -209,7 +217,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% endif %}
 									
 									
-									{% if entry.LiveStatusService contains "LF" %}
+									{% if entry.ZabbixStatusURL %}
+										<td class="ch22-live-status" data-status-url="{{ entry.ZabbixStatusURL | escape }}" title="Waiting for Zabbix status">
+											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
+											{% if entry.LiveStatusService contains "LF" %}
+												<div class="ch22-status-detail croplistforge" title="Additional details from List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
+											{% elsif entry.LiveStatusService contains "GS" %}
+												<div class="ch22-status-detail cropgamestate" title="Additional details from Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
+											{% elsif entry.LiveStatusService contains "IW4M" %}
+												<div class="ch22-status-detail cropiw4m" title="Additional details from IW4M Admin">
+													<iframe src="{{ entry.LiveStatusURL }}" scrolling="no"></iframe>
+												</div>
+											{% endif %}
+										</td>
+
+									{% elsif entry.LiveStatusService contains "LF" %}
 										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
@@ -356,7 +378,21 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% endif %}
 									
 									
-									{% if entry.LiveStatusService contains "LF" %}
+									{% if entry.ZabbixStatusURL %}
+										<td class="ch22-live-status" data-status-url="{{ entry.ZabbixStatusURL | escape }}" title="Waiting for Zabbix status">
+											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
+											{% if entry.LiveStatusService contains "LF" %}
+												<div class="ch22-status-detail croplistforge" title="Additional details from List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
+											{% elsif entry.LiveStatusService contains "GS" %}
+												<div class="ch22-status-detail cropgamestate" title="Additional details from Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
+											{% elsif entry.LiveStatusService contains "IW4M" %}
+												<div class="ch22-status-detail cropiw4m" title="Additional details from IW4M Admin">
+													<iframe src="{{ entry.LiveStatusURL }}" scrolling="no"></iframe>
+												</div>
+											{% endif %}
+										</td>
+
+									{% elsif entry.LiveStatusService contains "LF" %}
 										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
 										
 									{% elsif entry.LiveStatusService contains "GS" %}
@@ -560,13 +596,25 @@ description: List of dedicated servers hosted by USA Channel 22
 	var statusClasses = [
 		"ch22-status-online",
 		"ch22-status-offline",
-		"ch22-status-unknown"
+		"ch22-status-unknown",
+		"ch22-status-not-monitored"
 	];
 
 	function setStatus(cell, status, checkedAt) {
 		var indicator = cell.querySelector(".ch22-status-indicator");
 		var checkedDate = checkedAt ? new Date(checkedAt) : null;
 		var validDate = checkedDate && !Number.isNaN(checkedDate.getTime());
+
+		statusClasses.forEach(function (className) {
+			indicator.classList.remove(className);
+		});
+
+		if (status === "not_monitored") {
+			indicator.classList.add("ch22-status-not-monitored");
+			indicator.textContent = "Not Monitored";
+			cell.title = "Monitoring is disabled in Zabbix";
+			return;
+		}
 
 		if (
 			(status !== "online" && status !== "offline") ||
@@ -576,9 +624,6 @@ description: List of dedicated servers hosted by USA Channel 22
 			status = "unknown";
 		}
 
-		statusClasses.forEach(function (className) {
-			indicator.classList.remove(className);
-		});
 		indicator.classList.add("ch22-status-" + status);
 		indicator.textContent = status.charAt(0).toUpperCase() + status.slice(1);
 
