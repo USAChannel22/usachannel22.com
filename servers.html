@@ -14,135 +14,26 @@ description: List of dedicated servers hosted by USA Channel 22
 	background-attachment: fixed;
 	}
 
-   .croplistforge {
-        width: 234px;
-        height: 60px;
-        overflow: hidden;
-    }
-
-    .croplistforge img {
-        width: 234px;
-        height: 60px;
-        margin: -43px 0 0 -173px;
-    }
-	
-	
-   .cropgamestate {
-        width: 560px;
-        height: 95px;
-        overflow: hidden;
-    }
-
-    .cropgamestate img {
-	object-fit: cover;
-        width: 200px;
-        height: 95px;
-        margin: -35px 0 0 -94px;
-    
-    }
-	
-	
-	.cropiw4m {
-	width: 150;          /* visible width */
-	height: 30px;         /* visible height */
-	overflow: hidden;
-	position: relative;
+	.ch22-server-name {
+	color: #9e9e9e;
+	transition: color 0.2s ease;
 	}
 
-	.cropiw4m iframe {
-	width: 200;
-	height: 95px;
-	border: 0;
-	position: absolute;
-	left: -32;              /* keep left side */
-	bottom: 0;            /* anchor to bottom */
-	transform: translate(0px, 0px);
+	.ch22-server-name a {
+	color: inherit;
 	}
 
-	.ch22-status-indicator {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.35em;
-	font-weight: 600;
-	max-width: 100%;
-	white-space: nowrap;
-	}
-
-	.ch22-status-indicator::before {
-	content: "";
-	width: 0.65em;
-	height: 0.65em;
-	border-radius: 50%;
-	background: #a0a0a0;
-	box-shadow: 0 0 0.35em currentColor;
-	}
-
-	.ch22-status-online {
+	.ch22-server-name-online {
 	color: #00ff00;
 	}
 
-	.ch22-status-online::before {
-	background: #00c853;
-	}
-
-	.ch22-status-offline {
+	.ch22-server-name-offline {
 	color: #ff4d4d;
 	}
 
-	.ch22-status-offline::before {
-	background: #e53935;
-	}
-
-	.ch22-status-unknown {
+	.ch22-server-name-unknown,
+	.ch22-server-name-not-monitored {
 	color: #c0c0c0;
-	}
-
-	.ch22-status-not-monitored {
-	color: #9e9e9e;
-	}
-
-	.ch22-status-detail {
-	margin-top: 0.35em;
-	max-width: 100%;
-	overflow: hidden;
-	}
-
-	.ch22-status-detail.croplistforge,
-	.ch22-status-detail.cropgamestate,
-	.ch22-status-detail.cropiw4m {
-	width: 100%;
-	}
-
-	.ch22-server-table {
-	table-layout: fixed;
-	width: 100%;
-	min-width: 720px;
-	}
-
-	.ch22-server-table th:nth-child(1),
-	.ch22-server-table td:nth-child(1) {
-	width: 34%;
-	}
-
-	.ch22-server-table th:nth-child(2),
-	.ch22-server-table td:nth-child(2) {
-	width: 21%;
-	}
-
-	.ch22-server-table th:nth-child(3),
-	.ch22-server-table td:nth-child(3) {
-	width: 13%;
-	}
-
-	.ch22-server-table th:nth-child(4),
-	.ch22-server-table td:nth-child(4) {
-	width: 17%;
-	}
-
-	.ch22-server-table th:nth-child(5),
-	.ch22-server-table td:nth-child(5) {
-	width: 15%;
-	overflow: hidden;
 	}
 	
 </style>
@@ -189,28 +80,31 @@ description: List of dedicated servers hosted by USA Channel 22
 					{{ type.gamedescription }}
 				</div>
 				
-				<table class="table table-bordered ch22-server-table">
+				<table class="table table-bordered">
 					<tbody>
 					<tr>
-						<th class="col-md-4"><b>Name</b></th>
+						<th class="col-md-4"><b>Name / Live Status</b></th>
 						<td class="col-md-2"><b>Address</b></td>
 						<td class="col-md-2"><b>Modpack</b></td>
 						<td class="col-md-2"><b>Operation</b></td>
-						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
 					{% for entry in site.data.serverspublic %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
-									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
-										
-									{% elsif entry.serveraccess contains "Offline" %}
-										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
-										
-									{% else %}
-										<td class="col-md-3" style="color: #FFD800" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
-									{% endif %}
+									<td
+										class="col-md-3 ch22-server-name {% if entry.ZabbixStatusURL %}ch22-live-status ch22-server-name-unknown{% else %}ch22-server-name-not-monitored{% endif %}"
+										data-description="{{ entry.ServerDescription | escape }}"
+										{% if entry.ZabbixStatusURL %}
+											data-status-url="{{ entry.ZabbixStatusURL | escape }}"
+											title="{{ entry.ServerDescription | escape }} — Live status: Unknown"
+										{% else %}
+											title="{{ entry.ServerDescription | escape }} — Live status: Not Monitored"
+										{% endif %}
+									>
+										{{ entry.servertitle }}
+										<span class="sr-only"> — Live status: <span class="ch22-status-text">{% if entry.ZabbixStatusURL %}Unknown{% else %}Not Monitored{% endif %}</span></span>
+									</td>
 									
 									
 									
@@ -258,43 +152,6 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
-									
-									{% if entry.ZabbixStatusURL %}
-										<td class="ch22-live-status" data-status-url="{{ entry.ZabbixStatusURL | escape }}" title="Waiting for Zabbix status">
-											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
-											{% if entry.LiveStatusService contains "LF" %}
-												<div class="ch22-status-detail croplistforge" title="Additional details from List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
-											{% elsif entry.LiveStatusService contains "GS" %}
-												<div class="ch22-status-detail cropgamestate" title="Additional details from Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
-											{% elsif entry.LiveStatusService contains "IW4M" %}
-												<div class="ch22-status-detail cropiw4m" title="Additional details from IW4M Admin">
-													<iframe src="{{ entry.LiveStatusURL }}" scrolling="no"></iframe>
-												</div>
-											{% endif %}
-										</td>
-
-									{% elsif entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% elsif entry.LiveStatusService contains "IW4M" %}
-										<td title="Monitored by IW4M Admin">
-											<div class="cropiw4m">
-												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
-												</iframe>
-											</div>
-										</td>
-
-									{% elsif entry.LiveStatusService contains "ZBX" %}
-										<td class="ch22-live-status" data-status-url="{{ entry.LiveStatusURL | escape }}" title="Waiting for Zabbix status">
-											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
-										</td>
-										
-									{% else %}
-										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
-									{% endif %}
 									
 								</tr>
 								
@@ -350,28 +207,31 @@ description: List of dedicated servers hosted by USA Channel 22
 					{{ type.gamedescription }}
 				</div>
 				
-				<table class="table table-bordered ch22-server-table">
+				<table class="table table-bordered">
 					<tbody>
 					<tr>
-						<th class="col-md-4"><b>Name</b></th>
+						<th class="col-md-4"><b>Name / Live Status</b></th>
 						<td class="col-md-2"><b>Address</b></td>
 						<td class="col-md-2"><b>Modpack</b></td>
 						<td class="col-md-2"><b>Operation</b></td>
-						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
 					{% for entry in site.data.serversmembers %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
-									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
-										
-									{% elsif entry.serveraccess contains "Offline" %}
-										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
-										
-									{% else %}
-										<td class="col-md-3" style="color: #FFD800" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
-									{% endif %}
+									<td
+										class="col-md-3 ch22-server-name {% if entry.ZabbixStatusURL %}ch22-live-status ch22-server-name-unknown{% else %}ch22-server-name-not-monitored{% endif %}"
+										data-description="{{ entry.ServerDescription | escape }}"
+										{% if entry.ZabbixStatusURL %}
+											data-status-url="{{ entry.ZabbixStatusURL | escape }}"
+											title="{{ entry.ServerDescription | escape }} — Live status: Unknown"
+										{% else %}
+											title="{{ entry.ServerDescription | escape }} — Live status: Not Monitored"
+										{% endif %}
+									>
+										{{ entry.servertitle }}
+										<span class="sr-only"> — Live status: <span class="ch22-status-text">{% if entry.ZabbixStatusURL %}Unknown{% else %}Not Monitored{% endif %}</span></span>
+									</td>
 									
 									
 									
@@ -419,43 +279,6 @@ description: List of dedicated servers hosted by USA Channel 22
 										<td class="col-md-2" style="color: #FFD800" title="Head Admin(s): {{ entry.PrimaryAdministrators }}">{{ entry.serveraccess }}</td>
 									{% endif %}
 									
-									
-									{% if entry.ZabbixStatusURL %}
-										<td class="ch22-live-status" data-status-url="{{ entry.ZabbixStatusURL | escape }}" title="Waiting for Zabbix status">
-											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
-											{% if entry.LiveStatusService contains "LF" %}
-												<div class="ch22-status-detail croplistforge" title="Additional details from List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
-											{% elsif entry.LiveStatusService contains "GS" %}
-												<div class="ch22-status-detail cropgamestate" title="Additional details from Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></div>
-											{% elsif entry.LiveStatusService contains "IW4M" %}
-												<div class="ch22-status-detail cropiw4m" title="Additional details from IW4M Admin">
-													<iframe src="{{ entry.LiveStatusURL }}" scrolling="no"></iframe>
-												</div>
-											{% endif %}
-										</td>
-
-									{% elsif entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% elsif entry.LiveStatusService contains "IW4M" %}
-										<td title="Monitored by IW4M Admin">
-											<div class="cropiw4m">
-												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
-												</iframe>
-											</div>
-										</td>
-
-									{% elsif entry.LiveStatusService contains "ZBX" %}
-										<td class="ch22-live-status" data-status-url="{{ entry.LiveStatusURL | escape }}" title="Waiting for Zabbix status">
-											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
-										</td>
-										
-									{% else %}
-										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
-									{% endif %}
 									
 								</tr>
 								
@@ -509,28 +332,31 @@ description: List of dedicated servers hosted by USA Channel 22
 					{{ type.gamedescription }}
 				</div>
 				
-				<table class="table table-bordered ch22-server-table">
+				<table class="table table-bordered">
 					<tbody>
 					<tr>
-						<th class="col-md-4"><b>Name</b></th>
+						<th class="col-md-4"><b>Name / Live Status</b></th>
 						<td class="col-md-2"><b>Address</b></td>
 						<td class="col-md-2"><b>Modpack</b></td>
 						<td class="col-md-2"><b>Operation</b></td>
-						<td class="col-md-2"><b>Live Status</b></td>
 					</tr>
 					{% for entry in site.data.serversother %}
 						{% if entry.gametitle == type.gametitle %} 
 								<tr>
 								
-									{% if entry.serveraccess contains "Online" %}
-										<td class="col-md-3" style="color: #00FF00" title="{{ entry.ServerDescription }}" >{{ entry.servertitle }}</td>
-										
-									{% elsif entry.serveraccess contains "Offline" %}
-										<td class="col-md-3" style="color: #FF0000" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
-										
-									{% else %}
-										<td class="col-md-3" style="color: #FFD800" title="{{ entry.ServerDescription }}">{{ entry.servertitle }}</td>
-									{% endif %}
+									<td
+										class="col-md-3 ch22-server-name {% if entry.ZabbixStatusURL %}ch22-live-status ch22-server-name-unknown{% else %}ch22-server-name-not-monitored{% endif %}"
+										data-description="{{ entry.ServerDescription | escape }}"
+										{% if entry.ZabbixStatusURL %}
+											data-status-url="{{ entry.ZabbixStatusURL | escape }}"
+											title="{{ entry.ServerDescription | escape }} — Live status: Unknown"
+										{% else %}
+											title="{{ entry.ServerDescription | escape }} — Live status: Not Monitored"
+										{% endif %}
+									>
+										{{ entry.servertitle }}
+										<span class="sr-only"> — Live status: <span class="ch22-status-text">{% if entry.ZabbixStatusURL %}Unknown{% else %}Not Monitored{% endif %}</span></span>
+									</td>
 									
 									
 									
@@ -579,29 +405,6 @@ description: List of dedicated servers hosted by USA Channel 22
 									{% endif %}
 									
 									
-									{% if entry.LiveStatusService contains "LF" %}
-										<td class="croplistforge" title="Monitored by List Forge"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% elsif entry.LiveStatusService contains "GS" %}
-										<td class="cropgamestate" title="Monitored by Game State"><img id="autorefresh" src="{{ entry.LiveStatusURL }}" class="myImage"></td>
-										
-									{% elsif entry.LiveStatusService contains "IW4M" %}
-										<td title="Monitored by IW4M Admin">
-											<div class="cropiw4m">
-												<iframe src="{{ entry.LiveStatusURL }}" scrolling="no">
-												</iframe>
-											</div>
-										</td>
-
-									{% elsif entry.LiveStatusService contains "ZBX" %}
-										<td class="ch22-live-status" data-status-url="{{ entry.LiveStatusURL | escape }}" title="Waiting for Zabbix status">
-											<span class="ch22-status-indicator ch22-status-unknown" aria-live="polite">Unknown</span>
-										</td>
-										
-									{% else %}
-										<td title="While everything is monitored internally, not every service has / can have a publicy readable monitor."><i>Not Monitored</i></td>
-									{% endif %}
-									
 								</tr>
 								
 						{% endif %}
@@ -636,42 +439,47 @@ description: List of dedicated servers hosted by USA Channel 22
 	var refreshIntervalMilliseconds = 60000;
 	var staleAfterMilliseconds = 180000;
 	var statusClasses = [
-		"ch22-status-online",
-		"ch22-status-offline",
-		"ch22-status-unknown",
-		"ch22-status-not-monitored"
+		"ch22-server-name-online",
+		"ch22-server-name-offline",
+		"ch22-server-name-unknown",
+		"ch22-server-name-not-monitored"
 	];
 
 	function setStatus(cell, status, checkedAt) {
-		var indicator = cell.querySelector(".ch22-status-indicator");
+		var statusText = cell.querySelector(".ch22-status-text");
+		var description = cell.getAttribute("data-description") || "";
 		var checkedDate = checkedAt ? new Date(checkedAt) : null;
 		var validDate = checkedDate && !Number.isNaN(checkedDate.getTime());
+		var label;
+		var statusTitle;
 
 		statusClasses.forEach(function (className) {
-			indicator.classList.remove(className);
+			cell.classList.remove(className);
 		});
 
 		if (status === "not_monitored") {
-			indicator.classList.add("ch22-status-not-monitored");
-			indicator.textContent = "Not Monitored";
-			cell.title = "Monitoring is disabled in Zabbix";
-			return;
+			label = "Not Monitored";
+			statusTitle = "Live status: Not Monitored — monitoring is disabled in Zabbix";
+		} else {
+			if (
+				(status !== "online" && status !== "offline") ||
+				!validDate ||
+				Date.now() - checkedDate.getTime() > staleAfterMilliseconds
+			) {
+				status = "unknown";
+			}
+
+			label = status.charAt(0).toUpperCase() + status.slice(1);
+			statusTitle = status === "unknown"
+				? "Live status: Unknown — Zabbix status is unavailable or stale"
+				: "Live status: " + label + " — last checked by Zabbix: " + checkedDate.toLocaleString();
 		}
 
-		if (
-			(status !== "online" && status !== "offline") ||
-			!validDate ||
-			Date.now() - checkedDate.getTime() > staleAfterMilliseconds
-		) {
-			status = "unknown";
+		cell.classList.add("ch22-server-name-" + status.replace("_", "-"));
+		if (statusText) {
+			statusText.textContent = label;
 		}
-
-		indicator.classList.add("ch22-status-" + status);
-		indicator.textContent = status.charAt(0).toUpperCase() + status.slice(1);
-
-		cell.title = status === "unknown"
-			? "Zabbix status is unavailable or stale"
-			: "Last checked by Zabbix: " + checkedDate.toLocaleString();
+		cell.title = description ? description + "\n" + statusTitle : statusTitle;
 	}
 
 	function refreshStatus(cell) {
